@@ -35,11 +35,13 @@ export default function SidebarLayou() {
   const Section = sectionComponents[activeSection];
 
   return (
-    <div className="flex h-screen bg-[#f8f4ee]">
-      <Sidebar active={activeSection} onSelect={setActiveSection} />
-      <main className="flex-1 p-8 overflow-y-auto">
-        {Section ? <Section /> : <p>Sección no encontrada</p>}
-      </main>
-    </div>
+    <AdminLayout>
+      <div className="flex h-screen bg-[#f8f4ee]">
+        <Sidebar active={activeSection} onSelect={setActiveSection} />
+        <main className="flex-1 p-8 overflow-y-auto">
+          {Section ? <Section /> : <p>Sección no encontrada</p>}
+        </main>
+      </div>
+    </AdminLayout>
   );
 }

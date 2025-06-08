@@ -43,6 +43,8 @@ export default function Sidebar({ active, onSelect }: SidebarProps) {
 
   const [user, setUser] = useState<Users | null>(null);
   const router = useRouter();
+  const [menuVisible, setMenuVisible] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const storedUser = StorageNavegador.getItemWithExpiry("user") as Users | null;
@@ -53,11 +55,6 @@ export default function Sidebar({ active, onSelect }: SidebarProps) {
     }
   }, [router]);
 
-  if (!user) return null;
-
-
-  const [menuVisible, setMenuVisible] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -72,8 +69,12 @@ export default function Sidebar({ active, onSelect }: SidebarProps) {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
+
+  if (!user) return null;
 
   return (
     <aside className="w-64 h-screen flex flex-col justify-between bg-white border-r px-4 py-6">
