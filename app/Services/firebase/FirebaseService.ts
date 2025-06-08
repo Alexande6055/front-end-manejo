@@ -30,7 +30,7 @@ class FirebaseService {
             //agregar el obtener foto de usuario
             if (!verifyE) {
                 alert("verifica tu correo Electronico")
-                await sendEmailVerification(userCredential.user, { url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/login` });
+                await sendEmailVerification(userCredential.user, { url: `https://b2a79205.front-end-manejo.pages.dev/pages/login` });
             }
 
             StorageNavegador.saveToLocalStorageWithExpiry(

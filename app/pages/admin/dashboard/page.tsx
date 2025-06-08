@@ -15,6 +15,7 @@ import CreacionAdmin from '../sections/CreacionAdmin';
 import AdminLayout from '../layout';
 import Secciones from '../sections/Secciones';
 
+
 const sectionComponents: { [key: string]: React.ComponentType } = {
   dashboard: Inicio,
   creacion_admin: CreacionAdmin,
@@ -29,15 +30,7 @@ const sectionComponents: { [key: string]: React.ComponentType } = {
   secciones: Secciones
 };
 
-export default function SidebarLayout() {
-  return (
-    <AdminLayout>
-      <SidebarLayou />
-    </AdminLayout>
-  );
-}
-
-function SidebarLayou() {
+export default function SidebarLayou() {
   const [activeSection, setActiveSection] = useState("dashboard");
   const Section = sectionComponents[activeSection];
 
