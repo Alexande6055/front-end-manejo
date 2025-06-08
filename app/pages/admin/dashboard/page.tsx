@@ -14,19 +14,20 @@ import GestionCambio from '../sections/GestionCambio';
 import CreacionAdmin from '../sections/CreacionAdmin';
 import AdminLayout from '../layout';
 import Secciones from '../sections/Secciones';
+import { JSX } from 'react/jsx-runtime';
 
-const sectionComponents: { [key: string]: React.ReactNode } = {
-  dashboard: <Inicio />,
-  creacion_admin: <CreacionAdmin />,
-  mision_vision: <MisionVision />,
-  autoridades: <Autoridade />,
-  solicitudes: <Solicitudes />,
-  eventos: <Eventos />,
-  reportes: <Reportes />,
-  calificaciones: <Calificacion />,
-  inscripciones: <Inscripciones />,
-  gestion_cambio: <GestionCambio />,
-  Secciones: <Secciones />
+const sectionComponents: { [key: string]: () => JSX.Element } = {
+  dashboard: () => <Inicio />,
+  creacion_admin: () => <CreacionAdmin />,
+  mision_vision: () => <MisionVision />,
+  autoridades: () => <Autoridade />,
+  solicitudes: () => <Solicitudes />,
+  eventos: () => <Eventos />,
+  reportes: () => <Reportes />,
+  calificaciones: () => <Calificacion />,
+  inscripciones: () => <Inscripciones />,
+  gestion_cambio: () => <GestionCambio />,
+  secciones: () => <Secciones />
 };
 
 export default function SidebarLayout() {
@@ -46,7 +47,7 @@ function SidebarLayou() {
     <div className="flex h-screen bg-[#f8f4ee]">
       <Sidebar active={activeSection} onSelect={setActiveSection} />
       <main className="flex-1 p-8 overflow-y-auto">
-        {sectionComponents[activeSection] ?? <p>Sección no encontrada</p>}
+        {sectionComponents[activeSection]?.() ?? <p>Sección no encontrada</p>}
       </main>
     </div>
   );
