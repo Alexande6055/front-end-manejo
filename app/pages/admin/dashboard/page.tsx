@@ -13,7 +13,7 @@ import Inscripciones from '../sections/Inscripciones';
 import GestionCambio from '../sections/GestionCambio';
 import CreacionAdmin from '../sections/CreacionAdmin';
 import AdminLayout from '../layout';
-import Secciones from '../sections/Secciones';
+import Seccion from '../sections/Secciones';
 
 
 const sectionComponents: { [key: string]: React.ComponentType } = {
@@ -27,7 +27,7 @@ const sectionComponents: { [key: string]: React.ComponentType } = {
   calificaciones: Calificacion,
   inscripciones: Inscripciones,
   gestion_cambio: GestionCambio,
-  secciones: Secciones
+  secciones: Seccion
 };
 
 export default function SidebarLayou() {

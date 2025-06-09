@@ -6,7 +6,7 @@ import { createSeccion, deleteSeccion, updateSeccion } from '@/app/Services/secc
 import React, { useEffect, useState } from "react";
 //import { getSecciones, createSeccion, updateSeccion, deleteSeccion } from "@/app/Services/seccionesService";
 
-export default function Secciones() {
+export default function Seccion() {
     const [data, setData] = useState<Seccion[]>([]);
     const [loading, setLoading] = useState(true);
     const [editando, setEditando] = useState<Seccion | null>(null);
